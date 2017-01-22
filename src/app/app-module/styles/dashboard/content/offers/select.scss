@@ -1,0 +1,55 @@
+>tc-select{
+	>tc-container{
+		display: flex;
+		position: relative;
+    	flex-direction: column;
+    	border: 1px solid #ccc;
+    	outline: none;
+    	margin-top: 1rem;
+    	user-select: none;
+		>tc-control{
+			display: block;
+			height: 2rem;
+			line-height: 2rem;
+			cursor: pointer;
+			padding: 0rem 1rem;
+			&:after{
+            	font: normal normal normal 1rem/1 FontAwesome;
+	            padding: 0.5rem;
+	            display: block; 
+			    content: "\f053";
+			    position: absolute;
+			    top: 0;
+			    right: 0;
+			}
+			&:hover{ &:after{ color: blue; } }
+		}
+		>tc-box{
+			display: block;
+			position: absolute;
+			width: 100%;
+			max-height: 0;
+			overflow: hidden;
+			background-color: white;
+			top: 2rem;
+			margin: -1px;
+			flex-direction: column;
+    		transition: 200ms ease-in-out 100ms;
+			z-index: 1;
+			>tc-option{
+				display: block;
+				padding: 0.5rem;
+				cursor: default;
+    			&:hover{ background-color: #ccc; }
+			}
+		}
+		&:focus{
+			>tc-control{ &:after{ content: "\f078"; } }
+			>tc-box{
+				overflow: auto;
+    			border: 1px solid #ccc;
+				max-height: 10rem;
+			}
+		}
+	}
+}

@@ -1,0 +1,85 @@
+>tc-tree-list{
+	>tc-container{
+		display: flex;
+		position: relative;
+    	flex-direction: column;
+    	border: 1px solid #ccc;
+    	outline: none;
+    	user-select: none;
+		>tc-control{
+			display: block;
+			height: 2rem;
+			line-height: 2rem;
+			cursor: pointer;
+			padding: 0rem 1rem;
+			&:after{
+            	font: normal normal normal 1rem/1 FontAwesome;
+	            padding: 0.5rem;
+	            display: block; 
+			    content: "\f053";
+			    position: absolute;
+			    top: 0;
+			    right: 0;
+			}
+			&:hover{ &:after{ color: blue; } }
+		}
+		>tc-box{
+			display: block;
+			position: absolute;
+			width: 100%;
+			max-height: 0;
+			overflow: hidden;
+			background-color: white;
+			top: 2rem;
+			margin: -1px;
+			flex-direction: column;
+    		transition: 200ms ease-in-out 100ms;
+			z-index: 1;
+			tc-tree-list-node{
+				display: flex;
+    			flex-direction: column;
+				>tc-item{
+					display: flex;
+					flex-direction: row;
+					>tc-toggler{
+						font: normal normal normal 1rem/1 FontAwesome;
+						padding: 0 0.5rem;
+						display: block; 
+						line-height: 1.5rem;
+						&:before{ content: "\f0da"; }
+						&.expanded{ &:before{ content: "\f0d7"; } }
+					}
+					>tc-toggler + tc-item-content{ padding-left: 0; }
+					>tc-item-content{
+						display: flex;
+						flex-direction: column;
+						padding-left: 0.5rem;
+						flex: 1 0 0;
+						cursor: default;
+						&:hover { background-color: #ccc; }
+						>tc-title{}
+						>tc-description{
+							font-size: 0.9rem;
+							font-style: italic;
+						}
+					}
+				}
+			    >tc-nested-list{
+			    	display: none;
+			    	flex-direction: column;
+			    	overflow: hidden;
+			    	padding-left: 1rem;
+			        &.expanded{ display: flex; }
+			    }
+			}
+		}
+		&:focus{
+			>tc-control{ &:after{ content: "\f078"; } }
+			>tc-box{
+				overflow: auto;
+    			border: 1px solid #ccc;
+				max-height: 10rem;
+			}
+		}
+	}
+}

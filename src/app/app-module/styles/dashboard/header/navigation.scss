@@ -1,0 +1,52 @@
+>tc-navigation > tc-container{
+    >tc-menu{
+        display: flex;
+        background-color: $main_color;
+        >a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 1rem;
+            &:hover{ background: lighten($main_color, 5%); }
+        }
+    }
+    @media (max-width: $m_max) { 
+        >tc-expander {
+            font: normal normal normal 1.5rem/1 FontAwesome;
+            padding: 1rem;
+            color: white;
+            text-align: right;
+            display: block;
+            &:before { content: "\f0c9"; }
+            &:hover{ background: lighten($main_color, 5%); }            
+        }
+        >tc-menu{
+            flex-direction: column;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 0;
+            height: 100%;
+            overflow: hidden;
+            transition: width 200ms ease-in-out 100ms;
+            box-shadow: 0 0 2rem hsla(0,0%,0%,0.25);
+            z-index: 100;
+            >*{ 
+                width: 15rem;
+                font-size: 1.3rem; 
+            }
+            >tc-collapser{
+                padding: 1.5rem;
+                display: block;
+            }
+        }
+        &:focus{ >tc-menu{ width: 17rem; } }
+    }
+    @media (min-width: $l_min) {         
+        >tc-expander { display: none; }
+        >tc-menu{
+            flex-direction: row;
+            >tc-collapser{ display: none; }
+        }
+    }
+}

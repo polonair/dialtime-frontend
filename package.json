@@ -1,0 +1,47 @@
+{
+  "name": "dialtime-frontend",
+  "version": "0.1.0",
+  "description": "Dialtime Frontend",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "SET APP_ENV=prod && webpack",
+    "watch": "webpack --output-path=\"../web/master\" --progress"
+  },
+  "repository":
+  {
+    "type": "git",
+    "url": "https://github.com/polonair/dialtime-frontend.git"
+  },
+  "author": "Alexander Mosyagin <fixnim@gmail.com>",
+  "license": "SEULA",
+  "dependencies": {
+    "@angular/common": "^2.2.3",
+    "@angular/compiler": "^2.2.3",
+    "@angular/core": "^2.2.3",
+    "@angular/http": "^2.2.3",
+    "@angular/platform-browser": "^2.2.3",
+    "@angular/platform-browser-dynamic": "^2.2.3",
+    "@angular/router": "^3.2.3",
+    "angular2-cookie": "^1.2.6",
+    "core-js": "^2.4.1",
+    "es6-shim": "^0.35.1",
+    "ngmeta": "^1.0.0",
+    "reflect-metadata": "^0.1.8",
+    "rxjs": "5.0.0-beta.12",
+    "typescript": "^2.1.1",
+    "typings": "^2.0.0",
+    "zone.js": "^0.6.21"
+  },
+  "devDependencies": {
+    "autoprefixer-loader": "^3.2.0",
+    "css-loader": "^0.26.0",
+    "file-loader": "^0.9.0",
+    "node-sass": "^3.13.0",
+    "postcss-loader": "^1.1.1",
+    "sass-loader": "^4.0.2",
+    "style-loader": "^0.13.1",
+    "ts-loader": "^1.2.2",
+    "typescript": "^2.0.10",
+    "webpack": "^1.13.3"
+  }
+}

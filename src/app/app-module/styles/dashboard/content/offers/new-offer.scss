@@ -1,0 +1,108 @@
+>tc-new-offer{
+    >tc-container{
+        position: fixed;
+        display: flex;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 100%;
+        background-color: rgba(0, 0, 0, 0.75);
+        z-index: 10;
+        transition: bottom 300ms ease-in;
+        overflow: hidden;
+        &.shown{
+            bottom: 0;        
+        }
+        >form{
+            display: flex;
+            flex-direction: column;
+            background-color: white;
+            margin: auto;
+            width: 100%;
+            padding: 0 2rem;
+            overflow: auto;
+            max-height: 100vh;
+            >tc-category-select{
+                display: block;
+                >span{
+                    &:nth-child(1){ display: block; }
+                    &:nth-child(2){
+                        display: flex;
+                        flex-direction: column;
+                        >tc-select{
+                            display: flex;
+                            flex-direction: column;
+                            >select{
+                                font: inherit;
+                                display: block;
+                                margin: 0.2rem;
+                            }
+                        }
+                    }
+                }
+            }
+            >tc-location-select{
+                display: block;
+                >span{
+                    &:nth-child(1){ display: block; }
+                    &:nth-child(2){
+                        display: flex;
+                        flex-direction: column;
+                        >tc-select{
+                            display: flex;
+                            flex-direction: column;
+                            >select{
+                                font: inherit;
+                                display: block;
+                                margin: 0.2rem;
+                            }
+                        }
+                    }
+                }
+            }
+            >tc-ask-edit{
+                display: block;
+                >span{
+                    &:nth-child(1){ display: block; }
+                    &:nth-child(2){
+                        display: flex;
+                        flex-direction: column;
+                        >input{
+                            font: inherit;
+                            display: block;
+                            margin: 0.2rem;
+                        }
+                    }
+                }
+            }
+            >tc-schedule-setup{
+                display: block;
+                >span{
+                    &:nth-child(1){ display: block; }
+                    &:nth-child(2){
+                        display: flex;
+                        flex-direction: column;
+                        >select{
+                            font: inherit;
+                            display: block;
+                            margin: 0.2rem;
+                        }
+                    }
+                }
+            }
+            >tc-button{
+                display: flex;
+                flex-direction: row-reverse;
+                justify-content: space-between;
+                >tc-ok{
+                    display: block;
+                    >tc-icon{ display: block; }
+                }
+                >tc-cancel{
+                    display: block;
+                    >tc-icon{ display: block; }
+                }
+            }
+        }
+    }
+}

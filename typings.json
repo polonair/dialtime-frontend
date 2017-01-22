@@ -1,0 +1,7 @@
+{
+    "name": "dialtime-frontend",
+    "dependencies": {},
+    "globalDependencies": {
+        "core-js": "registry:dt/core-js#0.0.0+20160914114559"
+    }
+}

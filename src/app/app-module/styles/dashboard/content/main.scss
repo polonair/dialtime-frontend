@@ -1,0 +1,10 @@
+>tc-content {
+    display: block;
+    flex: 1 0 auto;
+    >tc-wrapper{ @import 
+    	"./offers/main.scss", 
+    	"./calls/main.scss", 
+    	"./routes/main.scss", 
+    	"./finance/main.scss";
+    }
+}
