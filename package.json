@@ -1,6 +1,6 @@
 {
   "name": "dialtime-frontend",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Dialtime Frontend",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
