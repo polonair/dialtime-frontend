@@ -7,9 +7,12 @@ module.exports =
 {
     entry:
     {
-        app: "./src/app/index.ts",
-        polyfill: "./src/app/polyfill.ts",
-        vendor: "./src/app/vendor.ts"
+        admin: "./src/admin.ts",
+        manager: "./src/manager.ts",
+        master: "./src/master.ts",
+        partner: "./src/partner.ts",
+        polyfill: "./src/polyfill.ts",
+        vendor: "./src/vendor.ts"
     },
     output:
     {
