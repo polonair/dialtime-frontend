@@ -1,0 +1,80 @@
+>tc-placeholder{
+    font: normal normal normal 3rem/1 FontAwesome;
+    display: flex;
+    flex-direction: row;
+    height: 6rem;
+    &:before{
+        color: darkgray;
+        content: "\F110";
+        margin: auto;
+        animation: fa-spin 0.5s infinite steps(8);
+    }
+}
+>tc-new-clients-list{
+    display: flex;
+    flex-direction: column;
+    >tc-new-client-item{
+        display: block;
+        background-color: white;
+        margin: 0.2rem 0rem;
+        padding: 1rem;
+        box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
+        >tc-placeholder{
+            font: normal normal normal 2rem/1 FontAwesome;
+            display: flex;
+            flex-direction: row;
+            &:before{
+                content: "\F110";
+                margin: auto;
+                animation: fa-spin 0.5s infinite steps(8);
+            }
+        }
+        >tc-container{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            >tc-item-icon{
+                display: block;
+                flex: 0 0 auto;
+                position: relative;
+                width: 3rem;
+                margin-right: 1rem;
+                &:before{
+                    position: absolute;
+                    width: 100%;
+                    text-align: center;
+                    font: normal normal normal 3.5rem/1 FontAwesome;
+                    content: "\f1db";
+                }
+                &:after{
+                    width: 100%;
+                    text-align: center;
+                    display: inline-block;
+                    font: normal normal normal 1.7rem/2 FontAwesome;
+                    content: "\f252";
+                }
+            }
+
+            >tc-head{
+                display: flex;
+                flex-direction: row;
+                font-size: 1.1rem;
+                flex-grow: 1;
+                >span{
+                    display: block;
+                    &:nth-child(1){ margin-right: 1rem; }
+                    &:nth-child(2){ font-weight: 600; }
+                }
+            }
+            >tc-bind-button{
+                display: block;
+                flex: 0 0 auto;
+                &:after{
+                    width: 100%;
+                    font: normal normal normal 1.7rem/2 FontAwesome;
+                    content: "\F0C1";
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,15 @@
+>tc-dashboard {
+    display: flex;
+    min-height: 100%;
+    flex-direction: column;
+    background-color: #ecf0f5;
+    @import
+        "./header/main.scss", 
+        "./content/main.scss",
+        "./footer.scss";
+    tc-wrapper {
+        @media (max-width: $m_max) { width: 100%; }
+        @media (min-width: $l_min) { width: $l_min; }
+    }     
+}
+

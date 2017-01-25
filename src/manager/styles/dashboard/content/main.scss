@@ -1,0 +1,13 @@
+>tc-content {
+    display: block;
+    flex: 1 0 auto;
+    >tc-wrapper{ @import 
+    	"./campaigns/main.scss", 
+    	"./myclients/main.scss", 
+    	"./newclients/main.scss", 
+        "./tickets/main.scss", 
+    	"./calls/main.scss", 
+    	"./finance/main.scss";
+    }
+}
+
