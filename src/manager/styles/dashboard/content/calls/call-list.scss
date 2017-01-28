@@ -1,0 +1,96 @@
+>tc-placeholder{
+    font: normal normal normal 3rem/1 FontAwesome;
+    display: flex;
+    flex-direction: row;
+    height: 6rem;
+    &:before{
+        color: darkgray;
+        content: "\F110";
+        margin: auto;
+        animation: fa-spin 0.5s infinite steps(8);
+    }
+}
+>tc-call-list{
+    display: flex;
+    flex-direction: column;
+    >tc-call-item{
+        display: block;
+        background-color: white;
+        margin: 0.2rem 0rem;
+        padding: 1rem;
+        box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
+        >tc-placeholder{
+            font: normal normal normal 2rem/1 FontAwesome;
+            display: flex;
+            flex-direction: row;
+            &:before{
+                content: "\F110";
+                margin: auto;
+                animation: fa-spin 0.5s infinite steps(8);
+            }
+        }
+        >tc-container{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            >tc-icon{
+                display: block;
+                flex: 0 0 auto;
+                position: relative;
+                width: 2rem;
+                margin-right: 1rem;
+                &:before{
+                    position: absolute;
+                    width: 100%;
+                    text-align: center;
+                    font: normal normal normal 2.5rem/1 FontAwesome;
+                }
+                &:after{
+                    display: block;
+                    width: 100%;
+                    text-align: center;
+                    font: normal normal normal 1.2rem/2 FontAwesome;
+                }
+                &.income{
+                    &:before{ content: "\F095"; }
+                    &:after{
+                        content: "\F063";
+                        transform: rotate(45deg);
+                        color: green;
+                        margin-left: 2px;
+                        margin-top: -2px;
+                    }
+                }
+            }
+            >tc-head{
+                display: block;
+                flex-grow: 1;
+                >span{   
+                    display: flex;
+                    flex-direction: row;
+                    align-items: baseline;
+                    position: relative;
+                    flex-grow: 1;
+                    >tc-id, >tc-created, >tc-number, >tc-length{
+                        display: block;
+                        margin: 0 0.5rem;
+                    }
+                    &:first-child{
+                        font-size: 0.8rem;
+                        >tc-id{
+                            flex-grow: 1;
+                        }
+                        >tc-created{ }
+                    }
+                    &:last-child{
+                        >tc-number{ 
+                            flex-grow: 1;
+                            font-weight: 600; 
+                        }
+                        >tc-length{}
+                    }
+                }
+            }
+        }
+    }
+}

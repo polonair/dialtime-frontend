@@ -1,0 +1,25 @@
+>tc-logo {
+    display: block;
+    margin: 0.5rem;
+    >a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.5rem;
+        >i {
+            font-style: normal;
+            &:first-child {
+                font-weight: bold;
+                &:before {
+                    @media (max-width: $s_max) { content: "T"; }
+                    @media (min-width: $m_min) { content: "Target"; }   
+                }
+            }
+            &:last-child {
+                &:before {
+                    @media (max-width: $s_max) { content: "C"; }
+                    @media (min-width: $m_min) { content: "Call"; }
+                }
+            }
+        }
+    }
+}

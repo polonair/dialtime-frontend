@@ -1,0 +1,18 @@
+>tc-new-campaign-button{
+    position: fixed;
+    display: block;
+    bottom: 4rem;
+    right: 2rem;
+    width: 4rem;
+    height: 4rem;
+    background-color: $main_color;
+    border-radius: 2rem;
+    color: white;
+    font-size: 3rem;
+    text-align: center;
+    line-height: 3.7rem;
+    box-shadow: 0 0 2rem hsla(0,0%,0%,0.50);
+    cursor: pointer;
+    &:before{ content: "+"; }
+    &:hover{ background-color: lighten($main_color, 5%); }
+}

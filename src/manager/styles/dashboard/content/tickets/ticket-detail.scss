@@ -1,0 +1,218 @@
+>tc-ticket-detail{
+    display: flex;
+    flex-direction: column;
+	>tc-placeholder{}
+	>tc-container{
+	    display: flex;
+	    flex-direction: column;
+        background-color: white;
+        margin: 0.2rem 0rem;
+        padding: 1rem;
+        box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
+	    >tc-head{
+	    	display: flex;
+		    flex-direction: row;
+		    justify-content: space-between;
+		    position: relative;
+		    margin-bottom: 1rem;
+	        >tc-theme{
+	        	display: flex;
+			    flex-direction: row;
+			    font-size: 1.1rem;
+			    font-weight: 600;
+	            >span{
+	                &:nth-child(1){ margin-right: 1rem; }
+	                &:nth-child(2){}
+	            }
+	        }
+	        >tc-close{
+	        	display: block;
+			    font-size: 2rem;
+			    position: absolute;
+			    right: 0;
+			    top: -0.5rem;
+			    color: darkgray;
+	        	&:before{ content: '\00d7'; }
+	        }
+	    }
+	    >tc-body{
+	    	display: flex;
+		    flex-direction: column;
+		    border-top: 1px solid darkgray;
+	        >tc-info{
+		    	display: flex;
+			    flex-direction: column;
+	            >tc-created{
+			    	display: flex;
+				    flex-direction: row;
+				    margin-top: 1rem;
+	                >span{
+	                	display: block;
+	                    &:nth-child(1){
+	                    	font-weight: 600;
+	                    	margin-right: 1rem;
+	                    }
+	                    &:nth-child(2){}
+	                }
+	            }
+	            >tc-client{
+			    	display: flex;
+				    flex-direction: row;
+				    margin-top: 0.5rem;
+	                >span{
+	                	display: block;
+	                    &:nth-child(1){
+	                    	font-weight: 600;
+	                    	margin-right: 1rem;
+	                    }
+	                    &:nth-child(2){}
+	                }
+	            }
+	        }
+	        >tc-demanding{
+	        	position: relative;
+			    margin-top: 1rem;
+			    padding-top: 1.5rem;
+			    border-top: 1px solid darkgray;
+	            >tc-label{
+					text-transform: uppercase;
+				    font-weight: 800;
+				    font-size: 0.7rem;
+				    position: absolute;
+				    top: -0.4rem;
+				    background-color: white;
+				    padding: 0 0.5rem;
+	            }
+	            >tc-switch{
+	                >tc-case{
+	                    &.wait{
+	                    	display: flex;
+    						flex-direction: column;
+	                        >tc-select{
+	                        	>select{
+	                        		width: 100%;
+    								font: inherit;
+	                        	}
+	                        }
+	                        >tc-buttons{
+	                        	display: flex;
+							    flex-direction: row;
+							    justify-content: space-between;
+							    margin-top: 1rem;
+							    >tc-resolve, >tc-deny{
+	                            	display: block;
+									color: white;
+									padding: 0.3rem 0.5rem;
+	                            	>tc-icon{}
+							    }
+	                            >tc-resolve{
+	                            	background: $main_color;
+	                            	>tc-icon{}
+	                            }
+	                            >tc-deny{
+								    background: darkgrey;
+	                            	>tc-icon{}
+	                            }
+	                        }
+	                    }
+	                    &.accepted, &.declined{
+	                        >tc-text{
+	                        	display: flex;
+	                        	flex-direction: row;
+	                            >tc-icon{}
+	                            >span{
+	                            	margin-left: 1rem;
+	                                font-weight: 600;
+	                                &:nth-child(2){ flex-grow: 1; }
+	                            }
+	                        }
+	                    }
+	                    &.accepted{
+	                        >tc-text{
+	                            >tc-icon{}
+	                        }
+	                    }
+	                    &.declined{
+	                        >tc-text{
+	                            >tc-icon{}
+	                        }
+	                    }
+	                }
+	            }
+	        }
+	    }
+	}
+	tc-messages{
+	    display: flex;
+	    flex-direction: column;
+	    >tc-message{
+	    	display: block;
+		    padding: 1rem;
+		    background-color: white;
+        	margin: 0.2rem 0rem;
+		    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
+	        >tc-container{
+	        	position: relative;
+	        	display: block;
+	            >tc-id, >tc-date{
+	            	position: absolute;
+				    font-size: 0.7rem;
+				    top: -0.7rem;
+				    font-weight: 700;
+	            }
+	            >tc-id{
+				    left: 0;
+	            }
+	            >tc-date{
+				    width: 7rem;
+				    right: 0;
+	            }
+	            >tc-text{
+	            	padding-top: 1rem;
+    				display: block;
+	            }
+	        }
+	    }
+	    >tc-compose{
+	    	display: flex;
+		    flex-direction: column;
+		    padding: 1rem;
+		    background-color: white;
+        	margin: 0.2rem 0rem;
+		    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
+	        >tc-editor{
+	        	display: block;
+			    background-color: white;
+			    padding: 0.2rem;
+			    border: 1px solid darkgray;
+	            >textarea{
+	            	width: 100%;
+				    padding: 0;
+				    font: inherit;
+				    border: none;
+				    outline: none;
+	            }
+	        }
+	        >tc-buttons{
+	        	display: flex;
+			    flex-direction: row;
+			    justify-content: space-between;
+			    margin-top: 1rem;
+	            >tc-post, >tc-close{
+	            	display: block;
+				    color: white;
+				    padding: 0.3rem 0.5rem;
+	                >tc-icon{}
+	            }
+	            >tc-post{
+				    background-color: $main_color;
+	                >tc-icon{}
+	            }
+	            >tc-close{
+				    background-color: darkgray;
+	                >tc-icon{}
+	            }
+	        }
+	    }
+	}
+}

@@ -1,3 +1,20 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&subset=cyrillic,cyrillic-ext');
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+$xl_min: 1200px;
+$l_min:  960px;
+$m_min:  768px;
+$s_min:  480px;
+$xs_min: 320px;
+
+$l_max:   $xl_min - 1;
+$m_max:   $l_min - 1;
+$s_max:   $m_min - 1;
+$xs_max:  $s_min - 1;
+$xxs_max: $xs_min - 1;
+
+$main_color: #00a65a;
+
 html, body {
     display: block;
     height: 100%;
@@ -11,4 +28,7 @@ body > tc-app {
     display: block;
     height: 100%;
     background-color: #ecf0f5;
+    @import 
+        "./auth/main.scss",
+        "./dashboard/main.scss";
 }

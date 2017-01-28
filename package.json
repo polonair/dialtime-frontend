@@ -1,11 +1,11 @@
 {
   "name": "dialtime-frontend",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Dialtime Frontend",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "SET APP_ENV=prod && webpack",
-    "watch": "webpack --output-path=\"../web/master\" --progress"
+    "watch": "webpack --output-path=\"../../../sites/static.target-coll.ru/web/master\" --progress"
   },
   "repository":
   {

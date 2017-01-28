@@ -1,7 +1,15 @@
-import { Component} from '@angular/core';
-
-@Component({
-    selector: 'tc-app',
-    template: 'Hi!'
-})
-export class AppComponent { }
+export { AppComponent } from './app.component';
+export { DashboardComponent } from './dashboard.component';
+export { LoginComponent } from './login.component';
+export { MyClientsComponent } from './my-clients.component';
+export { MyClientListComponent } from './my-client-list.component';
+export { MyClientItemComponent } from './my-client-item.component';
+export { Navigation } from './navigation.component';
+export { NewClientsComponent } from './new-clients.component';
+export { NewClientItemComponent } from './new-client-item.component';
+export { NewClientsListComponent } from './new-clients-list.component';
+export { RegisterComponent } from './register.component';
+export { TicketsComponent } from './tickets.component';
+export { TicketListComponent } from './ticket-list';
+export { TicketItemComponent } from './ticket-item';
+export { TicketDetailComponent } from './ticket-detail.component';
