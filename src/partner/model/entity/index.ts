@@ -1,6 +1,10 @@
-export { Call } from './call';
-export { Demanding } from './demanding';
-export { Dongle } from './dongle';
 export { Campaign } from './campaign';
 export { Category } from './category';
+export { Demanding } from './demanding';
+export { Dongle } from './dongle';
 export { Location } from './location';
+export { Message } from './message';
+export { Partner } from './partner';
+export { Route } from './route';
+export { Ticket } from './ticket';
+export { Transaction } from './transaction';

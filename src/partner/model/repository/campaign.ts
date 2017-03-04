@@ -6,6 +6,7 @@ import { Campaign }  from '../entity';
 export class CampaignRepository extends Repository{
     private campaigns_by_id = {};
     private campaigns = [];
+    public ready = false;
     get(args){
         if (args[0] == '*' || args[0] == 'all') return this.campaigns;
         else{
@@ -35,10 +36,12 @@ export class CampaignRepository extends Repository{
                 offer.update();
             }
         }
+        this.ready = true;
     }
     create(args){
         this.dataRepository.api.doRequest({action:"campaign.create", data: args}).then((res: any) => {
             if (res.result == "ok") this.dataRepository.forceUpdate();
         });
     }
+    isReady(){ return this.ready; }
 }

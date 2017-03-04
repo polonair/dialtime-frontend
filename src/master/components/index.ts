@@ -104,7 +104,8 @@ export class DashboardComponent{
         private interractor: services.InterractorService) {
         this.interractor.lastTitle.subscribe(title => {
             this.title = title;
-            this.ngmeta.setMeta("name", "theme-color", settings.THEME_COLOR );
+            //this.ngmeta.setMeta("name", "theme-color", settings.THEME_COLOR );
+            this.ngmeta.createMeta({attribute: "name", type: "theme-color", content: settings.THEME_COLOR });
             this.ngmeta.setHead({ title: 'TargetCall | ' + this.title });
         });
     }
