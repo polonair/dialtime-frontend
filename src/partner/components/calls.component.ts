@@ -12,13 +12,13 @@ import * as model from '../model/';
     `
 })
 export class CallsComponent{
-	private calls: model.Call[];
+	private calls: model.Route[];
 	private length = 20;
     constructor(
         private interractor: services.InterractorService,
         private datarepo: model.DataRepository) { }
     ngOnInit(){
         this.interractor.title = 'Журнал звонков';
-    	this.calls = <model.Call[]>this.datarepo.get('call', ['~' + this.length]);
+    	this.calls = <model.Route[]>this.datarepo.get('route', ['~' + this.length]);
     } 
 }

@@ -11,6 +11,6 @@ import * as model from '../model/';
     `
 })
 export class CallItemComponent {
-    @Input() call: model.Call;
+    @Input() call: model.Route;
     getIcon(){ return "income"; }
 }

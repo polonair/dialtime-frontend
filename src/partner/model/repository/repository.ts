@@ -8,5 +8,6 @@ export abstract class Repository{
 	}
     abstract get(args);
     create?(args);
+    isReady?();
     abstract ids(ids: number[]);
 }

@@ -11,8 +11,8 @@ import * as model from '../model/';
     `
 })
 export class CallListComponent {
-    @Input() calls: model.Call[] = [];
-    insert(call: model.Call){
+    @Input() calls: model.Route[] = [];
+    insert(call: model.Route){
         this.calls.push(call);
     }
 }
