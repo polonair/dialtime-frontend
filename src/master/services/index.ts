@@ -70,8 +70,25 @@ export class ApiRequest {
 export class UserService {
     private loggedIn = false;
     private initialized = false;
+    public just_registered = "";
 
     constructor(private api: ApiRequest, private cookies: CookieService, private router: Router) { }
+    register(username){
+    	let tz = (new Date()).getTimezoneOffset();
+    	return this.api.request({ action: "register", data: { username: username, timezone: tz } }).then((response: Response) => {
+    		this.loggedIn = false;
+    		if (response.json().result == 'ok')
+    		{
+	    		this.just_registered = response.json().data;
+
+    		}
+    		else
+    		{
+	    		this.just_registered = username;
+    		}
+    		return (response.json().result == 'ok');
+    	});
+    }
     login(username, password) {
     	return this.api.request({ action: "login", data: { username: username, password: password } }).then((response: Response) => {
     		this.loggedIn = (response.json().result == 'ok');

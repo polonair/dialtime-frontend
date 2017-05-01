@@ -338,7 +338,19 @@ export interface IRepository{
     get(args);
     create?(args);
     ids(ids: number[]);
+    isReady?();
 }
+
+/*export abstract class Repository{
+    public dataRepository: DataRepository;
+    constructor(repo: DataRepository){
+        this.dataRepository = repo;
+    }
+    abstract get(args);
+    create?(args);
+    isReady?();
+    abstract ids(ids: number[]);
+}*/
 
 export class TransactionRepository implements IRepository{
     private transactions_by_id = {};
@@ -394,6 +406,7 @@ export class TransactionRepository implements IRepository{
 export class OfferRepository implements IRepository{
     private offers_by_id = {};
     private offers = [];
+    public ready = false;
     constructor(public dataRepository: DataRepository) { }
     get(args){
         if (args[0] == '*' || args[0] == 'all') return this.offers;
@@ -424,12 +437,16 @@ export class OfferRepository implements IRepository{
                 offer.update();
             }
         }
+        this.ready = true;
     }
     create(args){
         this.dataRepository.api.doRequest({action:"offer.create", data: args}).then((r: any) => {
             let res = r;
             if (res.result == "ok") this.dataRepository.forceUpdate();
         });
+    }
+    isReady(){
+        return this.ready;
     }
 }
 
@@ -749,4 +766,5 @@ export class DataRepository{
     }
     get(entity, args){ return (<IRepository>this.repos[entity]).get(args); }
     create(entity, args){ return (<IRepository>this.repos[entity]).create(args); }
+    isReady(entity){ return (<IRepository>this.repos[entity]).isReady(); }
 }
