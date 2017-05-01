@@ -68,3 +68,81 @@
         }
     }
 }
+
+>tc-auth-login, >tc-auth-register{
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    background-color: #d2d6de;
+    >tc-login-box, >tc-register-box{
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        margin-top: 15vh;
+        >tc-logo{
+            display: block;
+            >a{
+                display: block;
+                text-decoration: none;
+                font-style: normal;
+                font-size: 2.3rem;
+                color: black;
+                text-align: center;
+                margin-bottom: 2rem;
+                >i{
+                    font-style: normal;
+                    &:first-child{
+                        font-weight: 700;
+                        &:before{ content: "Target"; }
+                    }
+                    &:last-child{
+                        font-weight: 300;
+                        &:before{ content: "Call"; }
+                    }
+                }
+            }
+        }
+        >tc-form{
+            >form{
+                display: flex;
+                flex-direction: column;
+                background-color: white;
+                padding: 2rem;
+                >p, >input, >button{
+                    display: block;
+                    margin-top: 1rem;
+                }
+                >p{
+                    text-align: center;
+                    margin: 0;
+                }
+                >input, >button{
+                    border: 1px solid #d2d6de;
+                    padding: 0.5rem;
+                    outline: none;
+                    &:focus{ border: 1px solid #367fa9; }
+                }
+                >button{
+                    background-color: #367fa9;
+                    color: white;
+                    cursor: pointer;
+                    font-size: 1rem;
+                    &:hover{ background-color: darken(#367fa9, 5%); }
+                }
+                >tc-links{
+                    >tc-recover{
+                        >a{
+
+                        }
+                    }
+                    >tc-register{
+                        >a{
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

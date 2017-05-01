@@ -16,13 +16,13 @@ export class AppComponent { }
     selector: 'tc-landing',
     template:
     `
-    <h1>Landing Page</h1>
-    <p><a routerLink="/dashboard">Dashboard</a></p>
+    <tc-logo></tc-logo>
+    <tc-label>Осталось совсем немного</tc-label>
     `
 })
 export class LandingComponent { 
     constructor(private ngmeta: NGMeta){
-        this.ngmeta.setHead({ title: 'Landing Page' });
+        this.ngmeta.setHead({ title: 'TargetCall' });
     }
 }
 
@@ -30,20 +30,34 @@ export class LandingComponent {
     selector: 'tc-auth-login',
     template:
     `
-    <h1>Login</h1>
-    <form (submit)="submit(username.value, password.value, button)">
-    	<input type="text" #username>
-    	<input type="password" #password>
-    	<button type="submit" #button>Enter</button>
-    </form>
+    <tc-login-box>
+        <tc-logo>
+            <a routerLink="/"><i></i><i></i></a>
+        </tc-logo>
+        <tc-form>
+            <form (submit)="submit(username.value, password.value, button)">
+                <p>Вход в личный кабинет</p>
+                <input type="text" value="{{reg}}" #username>
+                <input type="password" #password>
+                <button type="submit" #button>Вход</button>
+                <tc-links>
+                    <tc-recover><a routerLink="/auth/recover">Забыли пароль?</a></tc-recover>
+                    <tc-register><a routerLink="/auth/register">Зарегистрироваться</a></tc-register>
+                </tc-links>
+            </form>
+        </tc-form>
+    </tc-login-box>
     `
 })
-export class LoginComponent { 
+export class LoginComponent extends OnInit { 
+    private reg = "";
+
     constructor(private ngmeta: NGMeta, private user: services.UserService, private router: Router){
-        this.ngmeta.setHead({ title: 'Login' });
+        super();
+        this.ngmeta.setHead({ title: 'TargetCall | Вход в личный кабинет' });
     }
     submit(username, password, button){
-    	button.innerText="Wait...";
+    	button.innerText="Подождите...";
     	button.disabled = true;
 
     	this.user.login(username, password).then((result) => {
@@ -51,11 +65,15 @@ export class LoginComponent {
     			this.router.navigate(['/dashboard']);
     		}
     		else{
-    			button.innerText="Enter";
+    			button.innerText="Вход";
     			button.disabled = false;
     		}
     	});
     	return false;
+    }
+    ngOnInit()
+    {
+        this.reg = this.user.just_registered;
     }
 }
 
@@ -63,12 +81,42 @@ export class LoginComponent {
     selector: 'tc-auth-register',
     template:
     `
-    <h1>Register</h1>
+    <tc-register-box>
+        <tc-logo>
+            <a routerLink="/"><i></i><i></i></a>
+        </tc-logo>
+        <tc-form>
+            <form (submit)="submit(username.value, button)">
+                <p>Регистрация в личном кабинете</p>
+                <input type="text" #username>
+                <button type="submit" #button>Регистрация</button>
+                <tc-links>
+                    <tc-recover><a routerLink="/auth/recover">Забыли пароль?</a></tc-recover>
+                    <tc-register><a routerLink="/auth/login">Я уже зарегистрирован</a></tc-register>
+                </tc-links>
+            </form>
+        </tc-form>
+    </tc-register-box>
     `
 })
-export class RegisterComponent { 
-    constructor(private ngmeta: NGMeta){
-        this.ngmeta.setHead({ title: 'Register' });
+export class RegisterComponent {  
+    constructor(private ngmeta: NGMeta, private user: services.UserService, private router: Router){
+        this.ngmeta.setHead({ title: 'TargetCall | Регистрация' });
+    }
+    submit(username, button){
+        button.innerText="Подождите...";
+        button.disabled = true;
+
+        this.user.register(username).then((result) => {
+            if (result) {
+                this.router.navigate(['/auth/login']);
+            }
+            else{
+                button.innerText="Регистрация";
+                button.disabled = false;
+            }
+        });
+        return false;
     }
 }
 
@@ -141,22 +189,26 @@ export class Navigation{
     selector: 'tc-offers',
     template:
     `
-    <tc-placeholder *ngIf="(offers == 'undefined') || (offers == null) || (offers.length < 1)"></tc-placeholder>
+    <tc-placeholder *ngIf="showPlaceholder()"></tc-placeholder>
+    <tc-nothing *ngIf="showNothing()">пусто</tc-nothing>
     <tc-offer-list [offers]="offers" #list></tc-offer-list>
     <tc-new-offer #new_offer></tc-new-offer>
     <tc-new-offer-button (click)="new_offer.toggle()"></tc-new-offer-button>
     `
 })
 export class OffersComponent implements OnInit {
-	private offers: model.Offer[];
+    private offers: model.Offer[] = null;
     constructor(
         private interractor: services.InterractorService,
         private datarepo: model.DataRepository) { }
     ngOnInit(){
-        this.interractor.title = 'Предложения';
-    	this.offers = <model.Offer[]>this.datarepo.get('offer', ['*']);
-    } 
+        this.interractor.title = 'Кампании';
+        this.offers = <model.Offer[]>this.datarepo.get('offer', ['*']);
+    }
+    showPlaceholder(){ return !this.datarepo.isReady('offer'); }
+    showNothing(){ return (this.datarepo.isReady('offer') && (this.offers.length < 1)); }    
 }
+
 @Component({
     selector: 'tc-new-offer',
     template:
