@@ -357,6 +357,7 @@ export class TransactionRepository implements IRepository{
     private transactions: Transaction[] = [];
     private loaded: Transaction[] = [];
     private minlength = 0;
+    public ready = false;
     constructor(public dataRepository: DataRepository) { }
     get(args){
         if (args[0][0] == '~'){
@@ -383,6 +384,7 @@ export class TransactionRepository implements IRepository{
             this.transactions.sort((a: Transaction, b: Transaction)=>{ return b.id-a.id; });
             this.update_loaded();
         }
+        this.ready = true;
     }
     update_loaded(){
         this.loaded.length = 0;
@@ -400,6 +402,9 @@ export class TransactionRepository implements IRepository{
             }
             i++;
         }
+    }
+    isReady(){
+        return this.ready;
     }
 }
 

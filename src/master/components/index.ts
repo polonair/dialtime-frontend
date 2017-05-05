@@ -692,7 +692,8 @@ export class RouteItemComponent {
             </tc-fillup>
         </tc-container>
     </tc-account>
-    <tc-placeholder *ngIf="(transactions == 'undefined') || (transactions == null) || (transactions.length < 1)"></tc-placeholder>
+    <tc-placeholder *ngIf="showPlaceholder()"></tc-placeholder>
+    <tc-nothing *ngIf="showNothing()">пусто</tc-nothing>
     <tc-transaction-list [transactions]="transactions" #list></tc-transaction-list>
     `
 })
@@ -721,6 +722,8 @@ export class FinanceComponent{
             }
         });
     }
+    showPlaceholder(){ return !this.datarepo.isReady('transaction'); }
+    showNothing(){ return (this.datarepo.isReady('transaction') && (this.transactions.length < 1)); } 
 }
 
 @Component({
