@@ -37,7 +37,7 @@ export class LandingComponent {
         <tc-form>
             <form (submit)="submit(username.value, password.value, button)">
                 <p>Вход в личный кабинет</p>
-                <input type="text" value="{{reg}}" #username>
+                <input type="text" placeholder="Номер телефона" value="{{reg}}" #username>
                 <input type="password" #password>
                 <button type="submit" #button>Вход</button>
                 <tc-links>
@@ -88,7 +88,8 @@ export class LoginComponent extends OnInit {
         <tc-form>
             <form (submit)="submit(username.value, button)">
                 <p>Регистрация в личном кабинете</p>
-                <input type="text" #username>
+                <p>Введите номер вашего мобильного телефона</p>
+                <input type="text" placeholder="Номер телефона" #username>
                 <button type="submit" #button>Регистрация</button>
                 <tc-links>
                     <tc-recover><a routerLink="/auth/recover">Забыли пароль?</a></tc-recover>
