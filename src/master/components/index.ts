@@ -203,7 +203,7 @@ export class OffersComponent implements OnInit {
         private interractor: services.InterractorService,
         private datarepo: model.DataRepository) { }
     ngOnInit(){
-        this.interractor.title = 'Кампании';
+        this.interractor.title = 'Предложения';
         this.offers = <model.Offer[]>this.datarepo.get('offer', ['*']);
     }
     showPlaceholder(){ return !this.datarepo.isReady('offer'); }

@@ -5,7 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "SET APP_ENV=prod && webpack",
-    "watch": "webpack --output-path=\"../../../sites/static.target-coll.ru/web/master\" --progress"
+    "watch": "webpack --output-path=\"../../../sites/targetcall/static/master\" --progress"
   },
   "repository": {
     "type": "git",
