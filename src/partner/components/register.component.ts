@@ -15,7 +15,8 @@ import * as services from '../services';
         <tc-form>
             <form (submit)="submit(username.value, button)">
                 <p>Регистрация в личном кабинете</p>
-                <input type="text" #username>
+                <p>Введите номер вашего мобильного телефона</p>
+                <input type="text" placeholder="Номер телефона" #username>
                 <button type="submit" #button>Регистрация</button>
                 <tc-links>
                     <tc-recover><a routerLink="/auth/recover">Забыли пароль?</a></tc-recover>

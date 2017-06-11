@@ -15,7 +15,7 @@ import * as services from '../services';
         <tc-form>
             <form (submit)="submit(username.value, password.value, button)">
                 <p>Вход в личный кабинет</p>
-                <input type="text" value="{{reg}}" #username>
+                <input type="text" placeholder="Номер телефона" value="{{reg}}" #username>
                 <input type="password" #password>
                 <button type="submit" #button>Вход</button>
                 <tc-links>
