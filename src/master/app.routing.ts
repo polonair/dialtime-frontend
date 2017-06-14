@@ -15,28 +15,12 @@ export const app_routing =
         path: 'dashboard', component: components.DashboardComponent, canActivate: [ services.LoggedInGuard ],
         children: [
             { path: '', component: components.OffersComponent },
-            {
-                path: 'offers',
-                children: [
-                    //{ path: ':id', component: components.OfferDetailsComponent },
-                    { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
-                ]
-            },
+            { path: 'offers', redirectTo: '/dashboard', pathMatch: 'full' },
+            { path: 'offer/:id', component: components.OfferDetailsComponent },
             { path: 'calls', component: components.CallsComponent },
-            {
-                path: 'routes',
-                children: [
-                    //{ path: ':id', component: components.RouteDetailsComponent },
-                    { path: '', component: components.RoutesComponent }
-                ]
-            },
-            {
-                path: 'finance',
-                children: [
-                    //{ path: 'fillup', component: components.FillUpComponent },
-                    { path: '', component: components.FinanceComponent }
-                ]
-            }
+            { path: 'routes', component: components.RoutesComponent },
+            { path: 'route/:id', component: components.RouteDetailsComponent },
+            { path: 'finance', component: components.FinanceComponent }
         ]
     }                
 ];

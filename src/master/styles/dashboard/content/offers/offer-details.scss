@@ -1,0 +1,324 @@
+>tc-offer-details{
+	>tc-details-container{
+		display: block;
+		background-color: white;
+		margin: 0.2rem 0rem;
+		padding: 1rem;
+		box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
+		>tc-placeholder{
+            font: normal normal normal 2rem/1 FontAwesome;
+            display: flex;
+            flex-direction: row;
+            &:before{
+                content: "\F110";
+                margin: auto;
+                animation: fa-spin 0.5s infinite steps(8);
+            }
+        }
+		>tc-container{
+	        >tc-control{
+	        	display: flex;
+	        	flex-direction: row;
+	        	align-items: center;
+	        	position: relative;
+	            >tc-id{
+	                position: absolute;
+	                top: -1rem;
+	                right: 0;
+	                font-size: 0.8rem;
+	            }
+	            >tc-item-icon{
+	            	display: block;
+				    flex: 0 0 auto;
+				    position: relative;
+				    width: 3rem;
+				    margin-right: 1rem;
+	            	&:before{
+            			position: absolute;
+					    width: 100%;
+					    text-align: center;
+					    font: normal normal normal 3.5rem/1 FontAwesome;
+            			content: "\f1db";
+            		}
+	            	&:after{
+					    width: 100%;
+					    text-align: center;
+					    display: inline-block;
+					    font: normal normal normal 1.7rem/2 FontAwesome;
+					}
+            		&.auto{ color: $main_color; &:after{ content: "\f01e"; } }
+            		&.on{ color: #008d4c; &:after{ margin-left: 2px; content: "\f04b"; } }
+            		&.off{ color: darkgray; &:after{ content: "\f04c"; } }
+            		&.hidden{ display: none; }
+	            }
+	            >tc-head{
+	            	display: block;
+				    flex: 1 1 auto;
+				    overflow: hidden;
+				    cursor: pointer;
+	            	>tc-text{
+	            		position: relative;
+	            		height: 2.5rem;
+					    overflow: hidden;
+					    display: block;
+					    text-overflow: ellipsis;
+					    white-space: nowrap;
+					    &:after {
+						    position: absolute;
+						    display: none;
+						    content: '\00d7';
+						    right: 0;
+						    top: -0.5rem;
+						    font-size: 2rem;
+						    color: darkgray;
+						}
+	            	}
+			        >tc-progress{
+			        	display: block;
+			        	width: 100%;
+			        	height: 2px;
+			        	background-color: #d6d6d6;
+			        	margin: 0.5rem 0rem;
+			        	>tc-bar{
+			        		display: block;
+			        		background-color: $main_color;
+			        		height: 2px;
+			        	}
+			        }
+	            }
+	            &.expanded{
+	            	>tc-item-icon{ display: none; }
+		            >tc-head{ >tc-text{ padding-right: 1rem; &:after { display: block; } } }	            	
+	            }
+	        }
+	        >tc-body{
+	        	display: block;
+	        	max-height: 0;
+	        	transition: max-height 200ms ease-in 0ms;
+	        	overflow-y: hidden;
+	        	&.expanded{
+	        		max-height: 30rem;
+	        	}
+	        	>tc-buttons{
+				    display: flex;
+				    flex-direction: row;
+				    justify-content: space-around;
+				    margin-top: 0.5rem;
+	                >tc-remove, >tc-repeat, >tc-play, >tc-pause, >tc-splitter{
+	                	display:block;
+					    font: normal normal normal 2rem/1 FontAwesome;
+					    margin-right: 1.5rem;
+					    width: 3rem;
+					    color: darkgray;
+					    position: relative;
+						&:before{
+							position: absolute;
+							//width: 100%;
+							text-align: center;
+							font: normal normal normal 3.5rem/1 FontAwesome;
+							content: "\f1db";
+							color: white;
+						}
+						&:after{
+							width: 100%;
+							text-align: center;
+							display: inline-block;
+							font: normal normal normal 1.7rem/2 FontAwesome;
+						}				    
+	                }
+	                >tc-remove{ cursor: pointer; &:after{ content: "\f014"; } }
+	                >tc-splitter{ flex-grow: 1; }
+	                >tc-repeat{ cursor: pointer; &:after{ content: "\f01e"; } }
+	                >tc-play{ cursor: pointer; &:after{ margin-left: 2px; content: "\f04b"; } }
+	                >tc-pause{ cursor: pointer; margin-right: 0rem; &:after{ content: "\f04c"; } }
+            		&.auto{ >tc-repeat{ &:before, &:after{ color: $main_color; } } }
+            		&.on{ >tc-play{ &:before, &:after{ color: #008d4c; } } }
+            		&.off{ >tc-pause{ &:before, &:after{ color: darkgray; } } }
+            		/*&.hidden{ display: none; }*/
+            	}
+	        	>tc-brief{
+	            	display: block;
+	            	>tc-category{
+	            		display: flex;
+	            		flex-direction: row;
+	            		margin-top: 1rem;
+	            		>span{
+	            			&:nth-child(1){
+	            				font-weight: bold;
+	            				margin-right: 1rem;
+	            			}
+	            			&:nth-child(2){
+	            				flex-grow: 1;
+	            			}
+	            		}
+	            	}
+	            	>tc-location{
+	            		display: flex;
+	            		flex-direction: row;
+	            		margin-top: 1rem;
+	            		>span{
+	            			&:nth-child(1){
+	            				font-weight: bold;
+	            				margin-right: 1rem;
+	            			}
+	            			&:nth-child(2){
+	            				flex-grow: 1;
+	            			}
+	            		}
+	            	}
+	            	>tc-ask{
+	            		display: flex;
+	            		flex-direction: row;
+	            		margin-top: 1rem;
+	            		>span{
+	            			&:nth-child(1){
+	            				font-weight: bold;
+	            				margin-right: 1rem;
+	            			}
+	            			&:nth-child(2){
+	            				flex-grow: 1;
+		                        >tc-show{
+		                        	display: none;
+		                        	flex-direction: row;
+		                        	align-items: baseline;
+		                        	&.shown{ display: flex; }
+		                        	>span{
+		                        		display: block;
+		                        	}
+		                        	>tc-pencil{
+										display: block;
+									    font: normal normal normal 1.5rem/1 FontAwesome;
+									    padding: 0rem 1rem;
+									    margin-top: -1rem;
+									    &:before{ content: '\F040'; }
+		                        	}
+		                        }
+		                        >tc-edit{
+		                        	display: none;
+		                        	flex-direction: column;
+		                        	align-items: stretch;
+		                        	&.shown{ display: flex; }
+		                            >input{
+										display: block;
+										font: inherit;
+										margin: 0.2rem 0rem;
+		                            }
+		                            >tc-buttons{
+										display: flex;
+										flex-direction: row-reverse;
+										justify-content: space-between;
+										width: 100%;
+										>tc-ok, >tc-cancel{
+										    display: block;
+										    color: white;
+										    padding: 0.2rem 0.7rem;
+										    border-radius: 0.1rem;	
+											>tc-icon{ font: normal normal normal 1rem/1 FontAwesome; }									
+										}
+		                            	>tc-ok{
+		                            		background-color: #605ca8;
+											>tc-icon{ &:before{ content: '\F00c'; } }
+		                            	}
+		                            	>tc-cancel{
+		                            		background-color: darkgray;
+											>tc-icon{ &:before{ content: '\F00d'; } }
+		                            	}
+		                            }
+		                        }
+	            			}
+	            		}
+	            	}
+	            	>tc-schedule{
+	            		display: flex;
+	            		flex-direction: row;
+	            		margin-top: 1rem;
+	            		>span{
+	            			&:nth-child(1){
+	            				font-weight: bold;
+	            				margin-right: 1rem;
+	            			}
+	            			&:nth-child(2){
+	            				flex-grow: 1;
+		                        >tc-show{
+		                        	display: none;
+		                        	flex-direction: row;
+		                        	align-items: baseline;
+		                        	&.shown{ display: flex; }
+		                            >span{ display: block; }
+		                        	>tc-pencil{
+										display: block;
+									    font: normal normal normal 1.5rem/1 FontAwesome;
+									    padding: 0rem 1rem;
+									    margin-top: -1rem;
+									    &:before{ content: '\F040'; }
+		                        	}
+		                        }
+		                        >tc-edit{
+		                        	display: none;
+		                        	flex-direction: column;
+		                        	align-items: baseline;
+		                        	&.shown{ display: flex; }
+		                            >tc-selects{
+		                            	display: flex;
+		                        		flex-direction: column;
+		                                >select{
+											display: block;
+										    font: inherit;
+										    width: 100%;
+										    margin: 0.2rem 0rem;
+		                                	&:nth-child(1){}
+		                                	&:nth-child(2){}
+		                                	&:nth-child(3){}
+		                                	&:nth-child(4){}
+		                                	&:nth-child(5){}
+		                                }
+		                            }
+		                            >tc-buttons{
+										display: flex;
+										flex-direction: row-reverse;
+										justify-content: space-between;
+										width: 100%;
+										>tc-ok, >tc-cancel{
+										    display: block;
+										    color: white;	
+										    padding: 0.2rem 0.7rem;
+										    border-radius: 0.1rem;
+											>tc-icon{ font: normal normal normal 1rem/1 FontAwesome; }									
+										}
+		                            	>tc-ok{
+		                            		background-color: #605ca8;
+											>tc-icon{ &:before{ content: '\F00c'; } }
+		                            	}
+		                            	>tc-cancel{
+		                            		background-color: darkgray;
+											>tc-icon{ &:before{ content: '\F00d'; } }
+		                            	}
+		                            }
+		                        }
+	            			}
+	            		}
+	            	}
+	            }
+	            >tc-call-list{
+	            	display: block;
+	                >tc-call-item{
+	                	display: block;
+	                    >tc-direction{
+	                    	display: block;
+	                    }
+	                    >tc-datetime{
+	                    	display: block;
+	                    }
+	                    >tc-cost{
+	                    	display: block;
+	                    }
+	                    >tc-length{
+	                    	display: block;
+	                    	margin: 0px;
+	                    }
+	                }
+	            }
+	        }
+	    }
+	}
+}

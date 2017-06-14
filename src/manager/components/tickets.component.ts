@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 
 import * as services from '../services';
-import * as model from '../model/';
+import * as model from '../model';
 
 @Component({
     selector: 'tc-tickets',

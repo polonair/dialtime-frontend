@@ -2,13 +2,14 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
-import { HttpModule } from '@angular/http';
+import { HttpModule, Http } from '@angular/http';
 import { NGMeta } from "ngmeta";
 import { CookieService } from 'angular2-cookie/services/cookies.service';
 
 import * as components from './components/';
-import * as services from './services/';
-import * as model from './model/';
+import * as services from './services';
+import * as model from './model';
+import * as settings from './app.settings';
 
 import { app_routing } from './app.routing';
 
@@ -29,10 +30,12 @@ import './styles/main.scss';
 		components.OffersComponent,
 		components.OfferListComponent,
 		components.OfferItemComponent,
+		components.OfferDetailsComponent,
     	components.RegisterComponent,
     	components.RoutesComponent,
 		components.RouteListComponent,
 		components.RouteItemComponent,
+		components.RouteDetailsComponent,
 		components.FinanceComponent,
 		components.TransactionListComponent,
 		components.TransactionItemComponent,
@@ -42,12 +45,16 @@ import './styles/main.scss';
     providers: [ 
     	NGMeta,
     	CookieService,
-		services.ApiRequest,
 		services.LoggedInGuard,
 		services.LoggedOutGuard,
-		services.UserService,
 		services.InterractorService,
 		model.DataRepository,
+        { 
+            provide: services.ApiRequest, 
+            useFactory:(http, cookie)=>{ return new services.ApiRequest(http, cookie, settings.API_URL); }, 
+            deps: [ Http, CookieService ] 
+        },
+		services.UserService,
     ],
     schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
