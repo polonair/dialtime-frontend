@@ -1,0 +1,170 @@
+>tc-route-details{
+        display: block;
+        background-color: white;
+        margin: 0.2rem 0rem;
+        padding: 1rem;
+        box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
+        >tc-placeholder{
+            font: normal normal normal 2rem/1 FontAwesome;
+            display: flex;
+            flex-direction: row;
+            &:before{
+                content: "\F110";
+                margin: auto;
+                animation: fa-spin 0.5s infinite steps(8);
+            }
+        }
+    >tc-container{
+        >tc-control{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            position: relative;
+            >tc-item-icon{
+                display: block;
+                flex: 0 0 auto;
+                position: relative;
+                width: 3rem;
+                margin-right: 1rem;
+                &:before{
+                    position: absolute;
+                    width: 100%;
+                    text-align: center;
+                    font: normal normal normal 3.5rem/1 FontAwesome;
+                    content: "\f1db";
+                }
+                &:after{
+                    width: 100%;
+                    text-align: center;
+                    display: inline-block;
+                    font: normal normal normal 1.7rem/2 FontAwesome;
+                    content: "\f252";
+                }
+                &.auto{ color: $main_color; &:after{ content: "\f01e"; } }
+                &.on{ color: #008d4c; &:after{ margin-left: 2px; content: "\f04b"; } }
+                &.off{ color: darkgray; &:after{ content: "\f04c"; } }
+                &.hidden{ display: none; }
+            }                
+            >tc-head{
+                display: block;
+                flex-grow: 1;
+                >span{
+                    display: flex;
+                    flex-direction: row;
+                    align-items: baseline;
+                    position: relative;
+                    flex-grow: 1;
+                    >tc-id, >tc-created, >tc-number{
+                        display: block;
+                        margin: 0 0.5rem;
+                    }
+                    &:first-child{
+                        font-size: 0.8rem;
+                        >tc-id{
+                            flex-grow: 1;
+                        }
+                        >tc-created{ }
+                    }
+                    &:last-child{
+                        >tc-number{ 
+                            flex-grow: 1;
+                            font-weight: 600; 
+                        }
+                    }      
+                }              
+            }
+        }
+        >tc-body{
+            display: none;
+            &.expanded{ display: block; }
+            >tc-buttons{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                margin-top: 0.5rem;
+                >tc-remove, >tc-blacklist, >tc-spam, >tc-reject, >tc-splitter{
+                    display:block;
+                    font: normal normal normal 2rem/1 FontAwesome;
+                    margin-right: 1.5rem;
+                    width: 3rem;
+                    color: darkgray;
+                    position: relative;
+                    &:before{
+                        position: absolute;
+                        //width: 100%;
+                        text-align: center;
+                        font: normal normal normal 3.5rem/1 FontAwesome;
+                        content: "\f1db";
+                        color: white;
+                    }
+                    &:after{
+                        width: 100%;
+                        text-align: center;
+                        display: inline-block;
+                        font: normal normal normal 1.7rem/2 FontAwesome;
+                    }                   
+                }
+                >tc-remove{ &:after{ content: "\f014"; } }
+                >tc-splitter{ flex-grow: 1; }
+                >tc-blacklist{ &:after{ content: "\f05c"; } }
+                >tc-spam{ &:after{ margin-left: 2px; content: "\f05e"; } }
+                >tc-reject{ margin-right: 0rem; &:after{ content: "\f088"; } }
+                                    /*&.auto{ >tc-repeat{ &:before, &:after{ color: $main_color; } } }
+                &.on{ >tc-play{ &:before, &:after{ color: #008d4c; } } }
+                &.off{ >tc-pause{ &:before, &:after{ color: darkgray; } } }
+                &.hidden{ display: none; }*/
+            }              
+            >tc-brief{
+                display: block;
+                >tc-created{
+                    display: flex;
+                    flex-direction: row;
+                    margin-top: 1rem;
+                    >span{
+                        &:nth-child(1){ 
+                            font-weight: bold;
+                            margin-right: 1rem; 
+                        }
+                        &:nth-child(2){ flex-grow: 1; }
+                    }
+                }
+                >tc-offer-link{
+                    display: flex;
+                    flex-direction: row;
+                    margin-top: 1rem;
+                    >span{
+                        &:nth-child(1){ 
+                            font-weight: bold;
+                            margin-right: 1rem; 
+                        }
+                        &:nth-child(2){ flex-grow: 1; }
+                    }
+                }
+                >tc-direct{
+                    display: flex;
+                    flex-direction: row;
+                    margin-top: 1rem;
+                    >span{
+                        &:nth-child(1){ 
+                            font-weight: bold;
+                            margin-right: 1rem; 
+                        }
+                        &:nth-child(2){ flex-grow: 1; }
+                    }
+                }
+                >tc-cost{
+                    display: flex;
+                    flex-direction: row;
+                    margin-top: 1rem;
+                    >span{
+                        &:nth-child(1){ 
+                            font-weight: bold;
+                            margin-right: 1rem; 
+                        }
+                        &:nth-child(2){ flex-grow: 1; }
+                    }
+                }
+            }
+        }
+    }
+}

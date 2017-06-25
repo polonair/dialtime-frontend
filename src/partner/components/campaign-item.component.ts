@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Input } from '@angular/core';
 
-import * as model from '../model/';
+import * as model from '../model';
 
 @Component({
     selector: 'tc-campaign-item',

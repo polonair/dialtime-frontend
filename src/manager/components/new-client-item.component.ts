@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import * as model from '../model/';
+import * as model from '../model';
 
 @Component({
     selector: 'tc-new-client-item',

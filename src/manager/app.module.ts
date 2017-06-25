@@ -8,7 +8,7 @@ import { CookieService } from 'angular2-cookie/services/cookies.service';
 
 import * as components from './components/';
 import * as services from './services';
-import * as model from './model/';
+import * as model from './model';
 import * as settings from './app.settings';
 
 import { app_routing } from './app.routing';
@@ -36,7 +36,7 @@ import './styles/main.scss';
         components.TicketDetailComponent,
     ],
     bootstrap: [ components.AppComponent ],
-    providers: [ 
+    providers: [
     	NGMeta,
     	CookieService,
 		services.LoggedInGuard,

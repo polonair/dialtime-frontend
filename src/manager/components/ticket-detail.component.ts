@@ -3,7 +3,7 @@ import { Router  } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import {Location} from '@angular/common';
 
-import * as model from '../model/';
+import * as model from '../model';
 
 @Component({
     selector: 'tc-ticket-detail',

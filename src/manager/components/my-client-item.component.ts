@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Router  } from '@angular/router';
 
-import * as model from '../model/';
+import * as model from '../model';
 
 @Component({
     selector: 'tc-my-client-item',

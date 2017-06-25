@@ -141,11 +141,11 @@
 								font: normal normal normal 1.7rem/2 FontAwesome;
 							}				    
 		                }
-		                >tc-remove{ &:after{ content: "\f014"; } }
+		                >tc-remove{ cursor: pointer; &:after{ content: "\f014"; } }
 		                >tc-splitter{ flex-grow: 1; }
-		                >tc-repeat{ &:after{ content: "\f01e"; } }
-		                >tc-play{ &:after{ margin-left: 2px; content: "\f04b"; } }
-		                >tc-pause{ margin-right: 0rem; &:after{ content: "\f04c"; } }
+		                >tc-repeat{ cursor: pointer; &:after{ content: "\f01e"; } }
+		                >tc-play{ cursor: pointer; &:after{ margin-left: 2px; content: "\f04b"; } }
+		                >tc-pause{ cursor: pointer; margin-right: 0rem; &:after{ content: "\f04c"; } }
 
 	            		&.auto{ >tc-repeat{ &:before, &:after{ color: $main_color; } } }
 	            		&.on{ >tc-play{ &:before, &:after{ color: #008d4c; } } }
